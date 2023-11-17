@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+int long long v[1001], n, ok=0, mini=100000000000, minii;
+int main()
+{
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        cin>>v[i];
+        if(v[i]<=mini){
+            mini=v[i];
+            minii=i;
+        }
+    }
+ 
+    if(v[1]==mini || v[n]==mini){
+        cout<<"NU";
+    }
+    
+    else{
+    for(int i=1;i<=minii;i++){
+    if(v[i]<=v[i+1] && i!=minii){
+        ok=1;
+     
+        cout<<"NU";
+        break;
+    }
+    }
+    if(ok==0){
+    for(int i=minii;i<=n;i++){
+        if(v[i]>=v[i+1] && i!=n){
+        ok=1;
+        cout<<"NU";
+        break;
+        }
+    }
+    }
+    if(ok==0){
+        cout<<"DA";
+    }
+    }
+    return 0;
+}
